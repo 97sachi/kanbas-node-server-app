@@ -17,7 +17,7 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:3000",
+    origin: process.env.NETLIFY_URL || "https://a5--amazing-bunny-e6043a.netlify.app" || "http://localhost:3000",
   }
  ));
   
