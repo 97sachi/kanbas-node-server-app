@@ -2,14 +2,12 @@
   "type": "module",
   "name": "kanbas-node-server-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js server for Kanbas",
   "main": "index.js",
   "scripts": {
-  "start": "npm run build && node dist/index.js",
-  "build": "tsc",
-  "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts"
-},
-
+    "start": "node index.js", 
+    "dev": "nodemon index.js" 
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,8 +17,6 @@
     "express-session": "^1.18.1"
   },
   "devDependencies": {
-    "@types/node": "^22.9.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "nodemon": "^2.0.22"
   }
 }
