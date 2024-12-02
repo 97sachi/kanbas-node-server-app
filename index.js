@@ -2,6 +2,7 @@ import express from 'express';
 import session from "express-session";
 import Hello from "./Hello.js";
 import Lab5 from "./Lab5/index.js";
+import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import "dotenv/config";
@@ -16,6 +17,7 @@ import cors from "cors";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 mongoose.connect(CONNECTION_STRING);
+
 const app = express();
 
 app.use(cors({
@@ -30,6 +32,9 @@ const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kanbas",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: CONNECTION_STRING,
+    }),
   };
   if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;
