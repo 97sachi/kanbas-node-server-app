@@ -24,7 +24,7 @@ app.use(cors({
   }
  ));
   
-app.use(express.json());
+
 
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kanbas",
@@ -40,7 +40,7 @@ const sessionOptions = {
     };
   }
   app.use(session(sessionOptions));
-  
+  app.use(express.json());
 UserRoutes(app);
 CourseRoutes(app);
 
