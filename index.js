@@ -20,13 +20,11 @@ mongoose.connect(CONNECTION_STRING);
 
 const app = express();
 
-const corsOptions = {
+app.use(cors({
   credentials: true,
-  origin: [
-    process.env.NETLIFY_URL || "https://a6--amazing-bunny-e6043a.netlify.app",
-    "http://localhost:3000", // For local development
-  ],
-};
+  origin: process.env.NETLIFY_URL || "https://a6--amazing-bunny-e6043a.netlify.app" || "http://localhost:3000",
+}
+));
   
 
 
